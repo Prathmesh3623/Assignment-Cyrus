@@ -50,11 +50,17 @@ This project is a first-person shooter (FPS) game built in Unreal Engine 5 . The
 ##  Challenges Faced
 
 1. GitHub file limit (100MB) 
---------Used .gitignore and 'git filter-repo to remove' `.vs` and `.ipch` files 
+--------Used .gitignore and 'git filter-repo to remove' `.vs` and `.ipch` files
+
+   
 2.UI not displaying score 
 --------Corrected widget reference and ensured binding with `ShooterWidget` 
+
+
 3.Crashes from missing `BeginPlay()` 
 --------Implemented properly in `ABoxTarget` and derived widgets 
+
+
 4. JSON loading failures 
 --------Added logging and null-checks during spawn loop 
 
