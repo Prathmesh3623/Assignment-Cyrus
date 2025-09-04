@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "BoxData.h" 
 #include "GameFramework/GameModeBase.h"
 #include "ShooterGameMode.generated.h"
 
@@ -45,6 +46,7 @@ protected:
 
 	/** Gameplay initialization */
 	virtual void BeginPlay() override;
+	
 
 private:
 	int32 TotalScore = 0;
@@ -53,4 +55,7 @@ public:
 
 	/** Increases the score for the given team */
 	void IncrementTeamScore(uint8 TeamByte);
+private:
+	void SpawnBoxes(const FBoxDataRoot& Data);
+	void FetchOnlineBoxData();
 };

@@ -14,8 +14,13 @@ public:
     ABoxTarget();
 
     // Particle effect on destroy
-    UPROPERTY(EditAnywhere, Category = "Effects")
+    UPROPERTY(EditDefaultsOnly, Category = "Effects")
     UParticleSystem* ExplosionEffect;
+
+
+    // OR for Niagara
+    // TObjectPtr<UNiagaraSystem> ExplosionEffect;
+
 
     // Called by GameMode to set up the box
     void InitBox(const FBoxType& Type, const FBoxTransform& Transform);

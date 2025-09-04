@@ -8,5 +8,6 @@
 class FBoxDataLoader
 {
 public:
-    static bool LoadBoxData(FBoxDataRoot& OutData);
+    
+    static bool ParseFromString(const FString& JsonString, FBoxDataRoot& OutData);
 };

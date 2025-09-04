@@ -4,6 +4,7 @@
 #include "Materials/MaterialInstanceDynamic.h"
 #include "Kismet/GameplayStatics.h"
 #include "Variant_Shooter/ShooterGameMode.h"
+#include "TimerManager.h"
 
 ABoxTarget::ABoxTarget()
 {
@@ -21,6 +22,9 @@ ABoxTarget::ABoxTarget()
     }
 
     Mesh->SetMobility(EComponentMobility::Movable);
+
+
+    
 }
 
 void ABoxTarget::InitBox(const FBoxType& Type, const FBoxTransform& Transform)
@@ -73,15 +77,22 @@ void ABoxTarget::HandleDestruction()
     // Optional explosion effect
     if (ExplosionEffect)
     {
+        UE_LOG(LogTemp, Warning, TEXT("Spawning explosion at location: %s"), *GetActorLocation().ToString());
+
         UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ExplosionEffect, GetActorLocation());
+    }
+    else
+    {
+        UE_LOG(LogTemp, Error, TEXT("ExplosionEffect is not assigned!"));
     }
 
     Destroy();
+   
+    
 }
 void ABoxTarget::BeginPlay()
 {
     Super::BeginPlay();
 
-    // Optional: add logs, effects, initialization here
     //UE_LOG(LogTemp, Log, TEXT("BoxTarget::BeginPlay called."));
 }

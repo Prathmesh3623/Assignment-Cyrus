@@ -20,7 +20,8 @@ public class CyrusAssignment : ModuleRules
 			"UMG",
             "Json",
 			"JsonUtilities",
-            "Niagara"
+            "Niagara",
+			"HTTP"
 
         });
 

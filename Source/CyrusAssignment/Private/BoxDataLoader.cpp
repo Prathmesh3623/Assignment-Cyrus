@@ -1,25 +1,19 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "BoxDataLoader.h"
-#include "Misc/FileHelper.h"
-#include "Misc/Paths.h"
 #include "Dom/JsonObject.h"
 #include "Serialization/JsonSerializer.h"
 
-bool FBoxDataLoader::LoadBoxData(FBoxDataRoot& OutData)
+
+
+bool FBoxDataLoader::ParseFromString(const FString& JsonString, FBoxDataRoot& OutData)
 {
-    FString JsonFilePath = FPaths::ProjectContentDir() + "Data/Box.json";
-    FString JsonString;
-
-    if (!FFileHelper::LoadFileToString(JsonString, *JsonFilePath))
-        return false;
-
     TSharedPtr<FJsonObject> RootObject;
     TSharedRef<TJsonReader<>> Reader = TJsonReaderFactory<>::Create(JsonString);
 
     if (!FJsonSerializer::Deserialize(Reader, RootObject) || !RootObject.IsValid())
         return false;
+
+    OutData.Types.Empty();
+    OutData.Objects.Empty();
 
     // Parse Types
     const TArray<TSharedPtr<FJsonValue>>* TypesArray;
