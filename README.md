@@ -1,6 +1,6 @@
-# 🎯 CyrusAssignment - FPS Shooter Game (Unreal Engine 5.6)
+Assignment-Cyrus  - FPS Shooter Game 
 
-## 📘 Description
+Description
 This project is a first-person shooter (FPS) game built in Unreal Engine 5 . The core gameplay revolves around spawning colored box targets from a JSON file, assigning them health and score values, and updating the player score dynamically via a UI widget upon successful destruction.
 
 
